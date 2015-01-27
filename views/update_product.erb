@@ -6,3 +6,8 @@
   <input type="text" name="price" value=<%= @product.price() %>>
   <button type="submit">Update!</button>
 </form>
+
+<form action="/products/<%= @product.id() %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Delete</button>
+</form>
