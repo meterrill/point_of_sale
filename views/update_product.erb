@@ -1,0 +1,8 @@
+<form  action="/products/<%= @product.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="product_name">Product Name</label>
+  <input type="text" name="product_name" value=<%= @product.product_name() %>>
+  <label for="price">Product Price</label>
+  <input type="text" name="price" value=<%= @product.price() %>>
+  <button type="submit">Update!</button>
+</form>

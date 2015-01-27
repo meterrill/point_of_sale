@@ -1,0 +1,13 @@
+<form action="/products" method="post">
+  <label for="product_name">Product Name:</label>
+  <input type="text" name="product_name" id="product_name">
+
+  <label for="price">Price:</label>
+  <input type="text" name="price" id="price">
+
+  <button type="submit">Enter</button>
+</form>
+
+<% @products.each() do |product| %>
+  <li><a href = "/products/<%= product.id %>/update"> <%= product.product_name %> </a> <%= product.price() %></li>
+<% end %>
