@@ -1,0 +1,7 @@
+
+<% @product_ids.each do |product_id| %>
+<%= Product.find(product_id).product_name %>
+
+<% end %>
+<%= @total %>
+<a href="/">Return to Main Page</a>

@@ -6,9 +6,3 @@ end
 @product1 = Product.find(params.fetch("selected_product"))
 @purchase1.products << product1
 @total = purchase1.total
-
-
-<% @product_ids.each do |product_id| %>
-<%= Product.find(product_id).product_name %>
-
-<% end %>

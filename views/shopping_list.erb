@@ -1,4 +1,3 @@
-
 <form action="/purchase/<%= @purchase.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
 
@@ -10,8 +9,3 @@
 
   <button type="submit">Add products</button>
 </form>
-
-<% @product_ids.each do |product_id| %>
-<%= Product.find(product_id).product_name %>
-
-<% end %>

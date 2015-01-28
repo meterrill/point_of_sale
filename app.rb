@@ -50,6 +50,10 @@ patch('/purchase/:id') do
   purchase_id = params.fetch("id").to_i()
   @purchase = Purchase.find(purchase_id)
   @product_ids = params.fetch("product_ids")
+  @product_ids.each do |product_id|
+    @purchase.products << Product.find(product_id)
+  end
   @products = Product.all()
-  erb(:shopping_list)
+  @total = @purchase.total
+  erb(:calculate_total)
 end
