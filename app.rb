@@ -55,5 +55,6 @@ patch('/purchase/:id') do
   end
   @products = Product.all()
   @total = @purchase.total
+  @purchase.update({:total => @total})
   erb(:calculate_total)
 end
