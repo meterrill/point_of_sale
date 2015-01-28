@@ -11,3 +11,5 @@
 <% @products.each() do |product| %>
   <li><a href = "/products/<%= product.id %>/update"> <%= product.product_name %> </a> <%= product.price() %></li>
 <% end %>
+
+<a href = "/shopping_list">Shop for products </a>

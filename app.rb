@@ -3,10 +3,12 @@ require('sinatra/reloader')
 also_reload("lib/**/*.rb")
 require('sinatra/activerecord')
 require('./lib/product')
+require('./lib/purchase')
 require('pg')
 
 get('/') do
   @products = Product.all()
+  @purchases = Purchase.all
   erb(:index)
 end
 
@@ -36,4 +38,18 @@ delete('/products/:id') do
   @product.delete()
   @products = Product.all
   erb(:index)
+end
+
+get('/shopping_list') do
+  @products = Product.all
+  @purchase = Purchase.create({:total => 0})
+  erb(:shopping_list)
+end
+
+patch('/purchase/:id') do
+  purchase_id = params.fetch("id").to_i()
+  @purchase = Purchase.find(purchase_id)
+  @product_ids = params.fetch("product_ids")
+  @products = Product.all()
+  erb(:shopping_list)
 end
